@@ -11,7 +11,7 @@
   --ink:#0d0d0d;--ink-2:#1a1a1a;--muted:#6b6b6b;
   --rule:#e4e4e4;--bg:#f7f7f5;--white:#ffffff;
   --accent:#1a3a6b;--gold:#b8973a;
-  --green:#16a34a;--red:#dc2626;
+  --green:#16a34a;--red:#dc2626;--blue:#2563eb;
   --font:'Inter',sans-serif;--display:'Sora',sans-serif;
   --r:3px;--t:0.2s ease;
 }
@@ -19,115 +19,55 @@
 body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;overflow:hidden}
 
 /* LOGIN */
-.login{
-  position:fixed;inset:0;
-  background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  z-index:200;
-}
-.login-card{
-  background:var(--white);border-radius:6px;
-  padding:48px 40px;width:100%;max-width:400px;
-}
-.login-logo{
-  width:44px;height:44px;background:var(--ink);border-radius:var(--r);
-  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
-}
-.login-logo svg{color:#fff;width:22px;height:22px}
+.login{position:fixed;inset:0;background:var(--ink);display:flex;align-items:center;justify-content:center;z-index:200}
+.login-card{background:var(--white);border-radius:6px;padding:48px 40px;width:100%;max-width:400px}
+.login-logo{width:52px;height:52px;background:var(--ink);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;overflow:hidden}
+.login-logo img{width:40px;height:40px;object-fit:contain}
 .login-title{font-family:var(--display);font-size:20px;font-weight:800;text-align:center;margin-bottom:4px}
-.login-sub{font-size:12.5px;color:var(--muted);text-align:center;margin-bottom:32px}
+.login-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:32px;line-height:1.5}
 .f-label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.f-input{
-  width:100%;padding:11px 13px;
-  border:1px solid var(--rule);border-radius:var(--r);
-  font-family:var(--font);font-size:14px;color:var(--ink);
-  background:var(--bg);outline:none;transition:border-color var(--t);margin-bottom:16px;
-}
+.f-input{width:100%;padding:11px 13px;border:1px solid var(--rule);border-radius:var(--r);font-family:var(--font);font-size:14px;color:var(--ink);background:var(--bg);outline:none;transition:border-color var(--t);margin-bottom:16px}
 .f-input:focus{border-color:var(--ink);background:var(--white)}
-.login-btn{
-  width:100%;padding:13px;
-  background:var(--ink);color:var(--white);border:none;border-radius:var(--r);
-  font-family:var(--display);font-size:14px;font-weight:700;cursor:pointer;
-  transition:background var(--t);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
+.login-btn{width:100%;padding:13px;background:var(--ink);color:var(--white);border:none;border-radius:var(--r);font-family:var(--display);font-size:14px;font-weight:700;cursor:pointer;transition:background var(--t);display:flex;align-items:center;justify-content:center;gap:8px}
 .login-btn:hover{background:var(--ink-2)}
 .login-btn:disabled{opacity:.6;cursor:not-allowed}
 .login-err{color:var(--red);font-size:12.5px;margin-top:12px;text-align:center;display:none}
 .login-hint{font-size:11.5px;color:var(--muted);text-align:center;margin-top:16px}
 .back-a{display:inline-block;font-size:12.5px;color:var(--accent);font-weight:500;margin-top:10px}
-.login-needs-config{
-  font-size:12px;color:var(--accent);background:rgba(26,58,107,0.06);
-  border:1px solid rgba(26,58,107,0.15);border-radius:var(--r);
-  padding:10px 12px;margin-bottom:16px;display:none;line-height:1.6;
-}
+.login-needs-config{font-size:12px;color:var(--accent);background:rgba(26,58,107,0.06);border:1px solid rgba(26,58,107,0.15);border-radius:var(--r);padding:10px 12px;margin-bottom:16px;display:none;line-height:1.6}
 
 /* PANEL */
 .panel{display:none;height:100vh;flex-direction:row}
 .panel.show{display:flex}
 
 /* SIDEBAR */
-.side{
-  width:220px;flex-shrink:0;
-  background:var(--ink);
-  display:flex;flex-direction:column;
-  overflow-y:auto;
-}
-.side-brand{padding:20px 18px;border-bottom:1px solid rgba(255,255,255,0.08)}
-.side-brand-name{font-family:var(--display);font-size:13px;font-weight:800;color:#fff;letter-spacing:-.2px}
-.side-brand-sub{font-size:10.5px;color:rgba(255,255,255,0.35);margin-top:2px}
-.side-badge{
-  display:inline-block;margin-top:8px;
-  background:rgba(184,151,58,0.15);color:var(--gold);
-  font-size:10px;font-weight:600;letter-spacing:.5px;
-  padding:3px 9px;border-radius:99px;
-}
+.side{width:220px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;overflow-y:auto}
+.side-brand{padding:16px 18px 14px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.side-logo{width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:10px;overflow:hidden}
+.side-logo img{width:28px;height:28px;object-fit:contain}
+.side-brand-name{font-family:var(--display);font-size:12.5px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.side-brand-sub{font-size:10px;color:rgba(255,255,255,0.35);margin-top:2px;line-height:1.4}
+.side-badge{display:inline-block;margin-top:8px;background:rgba(184,151,58,0.15);color:var(--gold);font-size:10px;font-weight:600;letter-spacing:.5px;padding:3px 9px;border-radius:99px}
 .side-nav{flex:1;padding:12px 10px}
 .side-sec{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.25);padding:10px 10px 4px}
-.side-btn{
-  display:flex;align-items:center;gap:9px;width:100%;
-  padding:9px 12px;border:none;border-radius:var(--r);
-  background:transparent;color:rgba(255,255,255,0.55);
-  font-family:var(--font);font-size:13px;font-weight:500;
-  cursor:pointer;transition:all var(--t);text-align:left;margin-bottom:1px;
-}
+.side-btn{display:flex;align-items:center;gap:9px;width:100%;padding:9px 12px;border:none;border-radius:var(--r);background:transparent;color:rgba(255,255,255,0.55);font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;transition:all var(--t);text-align:left;margin-bottom:1px}
 .side-btn svg{width:16px;height:16px;flex-shrink:0}
 .side-btn:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.85)}
 .side-btn.on{background:rgba(255,255,255,0.1);color:#fff}
 .side-foot{padding:12px 10px;border-top:1px solid rgba(255,255,255,0.07)}
-.logout{
-  display:flex;align-items:center;gap:8px;width:100%;
-  padding:9px 12px;border:none;border-radius:var(--r);
-  background:rgba(220,38,38,0.12);color:#f87171;
-  font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:background var(--t);
-}
+.logout{display:flex;align-items:center;gap:8px;width:100%;padding:9px 12px;border:none;border-radius:var(--r);background:rgba(220,38,38,0.12);color:#f87171;font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:background var(--t)}
 .logout:hover{background:rgba(220,38,38,0.22)}
 .logout svg{width:16px;height:16px}
 
 /* MAIN */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.topbar{
-  background:var(--white);border-bottom:1px solid var(--rule);
-  padding:0 28px;height:56px;
-  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
-}
+.topbar{background:var(--white);border-bottom:1px solid var(--rule);padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .topbar-title{font-family:var(--display);font-size:16px;font-weight:800;color:var(--ink)}
 .topbar-right{display:flex;align-items:center;gap:10px}
-.sync-btn{
-  display:flex;align-items:center;gap:6px;
-  padding:7px 14px;border:1px solid var(--rule);border-radius:var(--r);
-  background:var(--white);color:var(--muted);
-  font-family:var(--font);font-size:12px;font-weight:500;cursor:pointer;transition:all var(--t);
-}
+.sync-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border:1px solid var(--rule);border-radius:var(--r);background:var(--white);color:var(--muted);font-family:var(--font);font-size:12px;font-weight:500;cursor:pointer;transition:all var(--t)}
 .sync-btn:hover{border-color:var(--ink);color:var(--ink)}
 .sync-btn svg{width:14px;height:14px}
-.view-btn{
-  display:flex;align-items:center;gap:6px;
-  padding:7px 14px;border-radius:var(--r);
-  background:var(--ink);color:#fff;
-  font-family:var(--display);font-size:12px;font-weight:700;
-  text-decoration:none;transition:background var(--t);
-}
+.view-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:var(--r);background:var(--ink);color:#fff;font-family:var(--display);font-size:12px;font-weight:700;text-decoration:none;transition:background var(--t)}
 .view-btn:hover{background:var(--ink-2)}
 .view-btn svg{width:14px;height:14px}
 .content{flex:1;overflow-y:auto;padding:28px}
@@ -138,30 +78,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
 
 /* STAT GRID */
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
-.stat-card{
-  background:var(--white);border:1px solid var(--rule);border-radius:var(--r);
-  padding:18px 18px;
-}
+.stat-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:18px;border-top:2px solid var(--ink)}
 .stat-num{font-family:var(--display);font-size:26px;font-weight:800;color:var(--ink)}
 .stat-label{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.5px;text-transform:uppercase;margin-top:4px}
-.stat-accent{border-top:2px solid var(--ink)}
 
 /* CARD */
 .card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);margin-bottom:20px;overflow:hidden}
-.card-head{
-  padding:16px 20px;border-bottom:1px solid var(--rule);
-  display:flex;align-items:center;justify-content:space-between;
-}
+.card-head{padding:16px 20px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between}
 .card-head h3{font-family:var(--display);font-size:14px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px}
 .card-head h3 svg{width:16px;height:16px;color:var(--muted)}
 .card-body{padding:20px}
 
-/* API CONFIG */
-.api-banner{
-  background:rgba(26,58,107,0.06);border:1px solid rgba(26,58,107,0.15);
-  border-radius:var(--r);padding:16px 18px;margin-bottom:24px;
-  display:flex;align-items:flex-start;gap:12px;
-}
+/* API BANNER */
+.api-banner{background:rgba(26,58,107,0.06);border:1px solid rgba(26,58,107,0.15);border-radius:var(--r);padding:16px 18px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
 .api-banner svg{width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:1px}
 .api-banner p{font-size:13px;color:var(--accent);line-height:1.6}
 .api-banner strong{font-weight:600}
@@ -169,82 +98,89 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
 /* FORMS */
 .fg{margin-bottom:14px}
 .fg label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.fg input,.fg select,.fg textarea{
-  width:100%;padding:10px 12px;
-  border:1px solid var(--rule);border-radius:var(--r);
-  font-family:var(--font);font-size:13.5px;color:var(--ink);
-  background:var(--bg);outline:none;transition:border-color var(--t);
-}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1px solid var(--rule);border-radius:var(--r);font-family:var(--font);font-size:13.5px;color:var(--ink);background:var(--bg);outline:none;transition:border-color var(--t)}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ink);background:var(--white)}
 .fg textarea{resize:vertical;min-height:72px}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .fg-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.btn-add{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:9px 18px;background:var(--ink);color:#fff;border:none;border-radius:var(--r);
-  font-family:var(--display);font-size:13px;font-weight:700;cursor:pointer;transition:background var(--t);
-}
+
+/* BUTTONS */
+.btn-add{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--ink);color:#fff;border:none;border-radius:var(--r);font-family:var(--display);font-size:13px;font-weight:700;cursor:pointer;transition:background var(--t)}
 .btn-add:hover{background:var(--ink-2)}
 .btn-add svg{width:14px;height:14px}
-.btn-save{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:9px 18px;background:var(--green);color:#fff;border:none;border-radius:var(--r);
-  font-family:var(--display);font-size:13px;font-weight:700;cursor:pointer;transition:background var(--t);
-}
+.btn-add:disabled{opacity:.5;cursor:not-allowed}
+.btn-save{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-family:var(--display);font-size:13px;font-weight:700;cursor:pointer;transition:background var(--t)}
 .btn-save:hover{background:#15803d}
 .btn-save svg{width:14px;height:14px}
-.btn-del{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 10px;background:transparent;
-  border:1px solid rgba(220,38,38,0.25);color:var(--red);border-radius:var(--r);
-  font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t);
-}
+.btn-edit{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;background:transparent;border:1px solid rgba(37,99,235,0.3);color:var(--blue);border-radius:var(--r);font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t)}
+.btn-edit:hover{background:rgba(37,99,235,0.07)}
+.btn-edit svg{width:12px;height:12px}
+.btn-del{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;background:transparent;border:1px solid rgba(220,38,38,0.25);color:var(--red);border-radius:var(--r);font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;transition:all var(--t)}
 .btn-del:hover{background:rgba(220,38,38,0.07)}
-.btn-del svg{width:13px;height:13px}
+.btn-del svg{width:12px;height:12px}
+.btn-cancel{display:inline-flex;align-items:center;gap:5px;padding:9px 18px;background:transparent;border:1px solid var(--rule);color:var(--muted);border-radius:var(--r);font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:all var(--t)}
+.btn-cancel:hover{background:var(--bg)}
+.action-group{display:flex;gap:6px;flex-wrap:wrap}
 
 /* TABLE */
 .tbl{width:100%;border-collapse:collapse;font-size:13.5px}
-.tbl th{
-  padding:9px 14px;text-align:left;
-  font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);
-  border-bottom:1px solid var(--rule);background:var(--bg);
-}
+.tbl th{padding:9px 14px;text-align:left;font-size:10.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule);background:var(--bg)}
 .tbl td{padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
 .tbl tbody tr:last-child td{border-bottom:none}
 .tbl tbody tr:hover{background:#fafaf9}
+.tbl tr.editing-row{background:#eff6ff !important}
 
-/* STATUS */
+/* INLINE EDIT ROW */
+.edit-cell-input{width:100%;padding:6px 8px;border:1px solid var(--blue);border-radius:var(--r);font-family:var(--font);font-size:13px;color:var(--ink);background:var(--white);outline:none;min-width:80px}
+.edit-cell-select{padding:6px 8px;border:1px solid var(--blue);border-radius:var(--r);font-family:var(--font);font-size:13px;color:var(--ink);background:var(--white);outline:none}
+.save-row-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:var(--green);color:#fff;border:none;border-radius:var(--r);font-size:12px;font-weight:600;cursor:pointer}
+.cancel-row-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:transparent;border:1px solid var(--rule);color:var(--muted);border-radius:var(--r);font-size:12px;font-weight:600;cursor:pointer}
+
+/* STATUS & DOT */
 .dot-open{color:var(--green);font-weight:600;font-size:12px}
 .dot-closed{color:var(--muted);font-size:12px}
 
-/* KETENTUAN LIST */
-.ket-admin-item{
-  display:flex;align-items:center;gap:12px;
-  padding:12px 14px;background:var(--bg);border-radius:var(--r);margin-bottom:6px;
-  border:1px solid var(--rule);
-}
+/* KETENTUAN */
+.ket-admin-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--bg);border-radius:var(--r);margin-bottom:6px;border:1px solid var(--rule);transition:background var(--t)}
+.ket-admin-item.editing{background:#eff6ff;border-color:rgba(37,99,235,.3)}
 .ket-admin-check svg{width:14px;height:14px;color:var(--green)}
 .ket-admin-text{flex:1;font-size:13.5px;color:var(--ink);font-weight:300}
+.ket-edit-input{flex:1;padding:6px 8px;border:1px solid var(--blue);border-radius:var(--r);font-family:var(--font);font-size:13.5px;color:var(--ink);background:var(--white);outline:none}
+
+/* GALERI UPLOAD */
+.upload-zone{border:2px dashed var(--rule);border-radius:var(--r);padding:32px;text-align:center;cursor:pointer;transition:border-color var(--t),background var(--t);background:var(--bg);position:relative}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--ink);background:rgba(13,13,13,0.03)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-zone-icon{width:48px;height:48px;background:var(--white);border-radius:var(--r);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.upload-zone-icon svg{width:24px;height:24px;color:var(--muted)}
+.upload-zone-text{font-size:13.5px;color:var(--muted);margin-bottom:4px}
+.upload-zone-hint{font-size:11.5px;color:var(--rule-dark,#c4c4c4)}
+.upload-preview{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:16px}
+.upload-prev-item{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--rule)}
+.upload-prev-item img{width:100%;height:100%;object-fit:cover;display:block}
+.upload-prev-remove{position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.upload-prev-name{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.6);color:#fff;font-size:10px;padding:3px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.upload-caption-row{display:flex;gap:8px;align-items:center;margin-top:4px}
+.upload-caption-row input{flex:1;padding:6px 8px;border:1px solid var(--rule);border-radius:var(--r);font-family:var(--font);font-size:12px;color:var(--ink);background:var(--white);outline:none}
+.upload-caption-row input:focus{border-color:var(--ink)}
+.upload-prog{margin-top:14px;display:none}
+.upload-prog-bar{height:5px;background:var(--rule);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.upload-prog-fill{height:100%;background:var(--green);border-radius:99px;width:0%;transition:width .3s ease}
+.upload-prog-text{font-size:12px;color:var(--muted)}
+
+/* GALERI GRID PREVIEW */
+.galeri-thumb{width:60px;height:45px;object-fit:cover;border-radius:var(--r);border:1px solid var(--rule);display:block}
+.galeri-thumb-ph{width:60px;height:45px;border-radius:var(--r);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.galeri-thumb-ph svg{width:20px;height:20px;color:var(--muted)}
 
 /* TOAST */
-.toast{
-  position:fixed;bottom:24px;right:24px;
-  background:var(--ink);color:#fff;
-  padding:12px 20px;border-radius:var(--r);
-  font-size:13.5px;font-weight:500;
-  display:none;align-items:center;gap:8px;
-  z-index:999;
-}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:#fff;padding:12px 20px;border-radius:var(--r);font-size:13.5px;font-weight:500;display:none;align-items:center;gap:8px;z-index:999}
 .toast.show{display:flex;animation:slideup .25s ease}
 .toast svg{width:16px;height:16px;color:var(--green)}
 @keyframes slideup{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
 
 /* STATUS BAR */
-.status-bar{
-  padding:8px 20px;border-top:1px solid var(--rule);
-  background:var(--white);font-size:11.5px;color:var(--muted);
-  display:flex;align-items:center;gap:8px;flex-shrink:0;
-}
+.status-bar{padding:8px 20px;border-top:1px solid var(--rule);background:var(--white);font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-shrink:0}
 .status-bar svg{width:13px;height:13px}
 .status-ok{color:var(--green)}
 .status-err{color:var(--red)}
@@ -261,16 +197,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
 <div class="login" id="loginScreen">
   <div class="login-card">
     <div class="login-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_Kementrian_Imigrasi_dan_Pemasyarakatan_%282024%29.png/960px-Logo_Kementrian_Imigrasi_dan_Pemasyarakatan_%282024%29.png" alt="Logo Kemenimipas"/>
     </div>
     <h1 class="login-title">Admin Panel</h1>
-    <p class="login-sub">Rutan Kelas IIB Bantaeng</p>
+    <p class="login-sub">Rutan Kelas IIB Bantaeng<br>Kementerian Imigrasi dan Pemasyarakatan RI</p>
 
     <div class="login-needs-config" id="loginNeedsConfig">
-      Backend belum dikonfigurasi di perangkat ini. Masukkan URL Apps Script
-      dan Secret Key terlebih dahulu untuk bisa login.
+      Backend belum dikonfigurasi. Isi URL Apps Script dan Secret Key terlebih dahulu.
     </div>
-
     <div id="preLoginConfig" style="display:none">
       <div>
         <label class="f-label">URL Google Apps Script</label>
@@ -291,8 +225,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <input type="password" id="loginPass" class="f-input" placeholder="Password" autocomplete="current-password"/>
     </div>
     <button class="login-btn" id="loginBtn" onclick="doLogin()">Masuk</button>
-    <div class="login-err" id="loginErr">Username atau password salah.</div>
-    <p class="login-hint">Login diverifikasi langsung oleh backend (Apps Script).<br><a href="index.html" class="back-a">← Kembali ke website</a></p>
+    <div class="login-err" id="loginErr"></div>
+    <p class="login-hint">Login diverifikasi langsung oleh backend Apps Script.<br><a href="index.html" class="back-a">← Kembali ke website</a></p>
   </div>
 </div>
 
@@ -301,49 +235,52 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
   <!-- SIDEBAR -->
   <aside class="side">
     <div class="side-brand">
+      <div class="side-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Logo_Kementrian_Imigrasi_dan_Pemasyarakatan_%282024%29.png/960px-Logo_Kementrian_Imigrasi_dan_Pemasyarakatan_%282024%29.png" alt="Logo Kemenimipas"/>
+      </div>
       <div class="side-brand-name">Rutan Bantaeng</div>
-      <div class="side-brand-sub">Panel Admin</div>
-      <div class="side-badge" id="sideBadge">Masuk sebagai Admin</div>
+      <div class="side-brand-sub">Kanwil Ditjenpas Sulawesi Selatan<br>Kemenimipas RI</div>
+      <div class="side-badge" id="sideBadge">Admin</div>
     </div>
     <nav class="side-nav">
       <div class="side-sec">Halaman</div>
       <button class="side-btn on" onclick="tab('dashboard',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
         Dashboard
       </button>
       <button class="side-btn" onclick="tab('layanan',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
         Layanan
       </button>
       <button class="side-btn" onclick="tab('jadwal',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
         Jadwal Kunjungan
       </button>
       <button class="side-btn" onclick="tab('ketentuan',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
         Ketentuan
       </button>
       <button class="side-btn" onclick="tab('galeri',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
         Galeri
       </button>
       <button class="side-btn" onclick="tab('kontak',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
         Kontak
       </button>
       <div class="side-sec" style="margin-top:12px">Konfigurasi</div>
       <button class="side-btn" onclick="tab('api',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
         Konfigurasi API
       </button>
       <button class="side-btn" onclick="tab('password',this)">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
         Ganti Password
       </button>
     </nav>
     <div class="side-foot">
       <button class="logout" onclick="doLogout()">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/></svg>
         Keluar
       </button>
     </div>
@@ -355,11 +292,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="topbar-title" id="topbarTitle">Dashboard</div>
       <div class="topbar-right">
         <button class="sync-btn" onclick="syncAll()" id="syncBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
           Sinkronisasi
         </button>
         <a href="index.html" target="_blank" class="view-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
           Lihat Website
         </a>
       </div>
@@ -370,22 +307,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <!-- DASHBOARD -->
       <div class="tab on" id="tab-dashboard">
         <div class="stat-row">
-          <div class="stat-card stat-accent"><div class="stat-num" id="sL">—</div><div class="stat-label">Layanan</div></div>
-          <div class="stat-card stat-accent"><div class="stat-num" id="sJ">—</div><div class="stat-label">Jadwal</div></div>
-          <div class="stat-card stat-accent"><div class="stat-num" id="sG">—</div><div class="stat-label">Galeri</div></div>
-          <div class="stat-card stat-accent"><div class="stat-num" id="sK">—</div><div class="stat-label">Ketentuan</div></div>
+          <div class="stat-card"><div class="stat-num" id="sL">—</div><div class="stat-label">Layanan</div></div>
+          <div class="stat-card"><div class="stat-num" id="sJ">—</div><div class="stat-label">Jadwal</div></div>
+          <div class="stat-card"><div class="stat-num" id="sG">—</div><div class="stat-label">Foto Galeri</div></div>
+          <div class="stat-card"><div class="stat-num" id="sK">—</div><div class="stat-label">Ketentuan</div></div>
         </div>
         <div class="card">
-          <div class="card-head">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
-              Panduan Singkat
-            </h3>
-          </div>
+          <div class="card-head"><h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+            Panduan Singkat
+          </h3></div>
           <div class="card-body" style="font-size:13.5px;color:var(--muted);line-height:1.75">
-            <p>Gunakan menu di sidebar untuk mengelola konten website. Setiap perubahan disimpan ke <strong style="color:var(--ink)">Google Sheets</strong> via Apps Script dan langsung tampil di website publik.</p>
+            <p>Gunakan menu sidebar untuk mengelola konten website Rutan Bantaeng. Setiap perubahan disimpan ke <strong style="color:var(--ink)">Google Sheets</strong> via Apps Script.</p>
             <br/>
-            <p><strong style="color:var(--ink)">Akun admin:</strong> dikelola lewat sheet <code style="background:var(--bg);padding:1px 6px;border-radius:2px;font-size:12px">Admin</code> dan fungsi <code style="background:var(--bg);padding:1px 6px;border-radius:2px;font-size:12px">setAdminPassword</code> di Apps Script — password tidak pernah tersimpan di kode frontend.</p>
+            <p><strong style="color:var(--ink)">Galeri:</strong> Upload foto langsung dari panel ini — foto tersimpan otomatis di <strong style="color:var(--ink)">Google Drive</strong> dan langsung tampil di website publik.</p>
+            <br/>
+            <p><strong style="color:var(--ink)">Edit:</strong> Klik tombol <span style="color:var(--blue);font-weight:600">Edit</span> pada baris mana pun untuk mengubah datanya langsung di tempat.</p>
           </div>
         </div>
       </div>
@@ -393,37 +330,33 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <!-- LAYANAN -->
       <div class="tab" id="tab-layanan">
         <div class="card">
-          <div class="card-head">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-              Tambah Layanan
-            </h3>
-          </div>
+          <div class="card-head"><h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            Tambah Layanan
+          </h3></div>
           <div class="card-body">
             <div class="fg-row">
-              <div class="fg"><label>Kunci Ikon (Heroicons)</label><input id="lIcon" placeholder="id-card" /></div>
-              <div class="fg"><label>Nama Layanan</label><input id="lTitle" placeholder="Nama layanan..." /></div>
+              <div class="fg"><label>Kunci Ikon</label><input id="lIcon" placeholder="id-card"/></div>
+              <div class="fg"><label>Nama Layanan</label><input id="lTitle" placeholder="Nama layanan..."/></div>
             </div>
             <div class="fg"><label>Deskripsi</label><textarea id="lDesc" placeholder="Deskripsi layanan..."></textarea></div>
             <div class="fg-row">
-              <div class="fg"><label>URL Tautan</label><input id="lLink" placeholder="https://..." /></div>
-              <div class="fg"><label>Label Tautan</label><input id="lLinkLabel" placeholder="Daftar online" /></div>
+              <div class="fg"><label>URL Tautan</label><input id="lLink" placeholder="https://..."/></div>
+              <div class="fg"><label>Label Tautan</label><input id="lLinkLabel" placeholder="Daftar online"/></div>
             </div>
             <button class="btn-add" onclick="addLayanan()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
               Tambah
             </button>
           </div>
         </div>
         <div class="card">
-          <div class="card-head">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
-              Daftar Layanan
-            </h3>
-          </div>
+          <div class="card-head"><h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+            Daftar Layanan
+          </h3></div>
           <table class="tbl">
-            <thead><tr><th>Ikon</th><th>Nama</th><th>Link</th><th>Aksi</th></tr></thead>
+            <thead><tr><th>Ikon</th><th>Nama</th><th>Deskripsi</th><th>Link</th><th>Aksi</th></tr></thead>
             <tbody id="layananBody"></tbody>
           </table>
         </div>
@@ -433,7 +366,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-jadwal">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
             Tambah Jadwal
           </h3></div>
           <div class="card-body">
@@ -446,14 +379,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
             </div>
             <div class="fg"><label>Keterangan</label><input id="jKet" placeholder="Terbuka / Libur / Tutup Sementara"/></div>
             <button class="btn-add" onclick="addJadwal()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
               Tambah
             </button>
           </div>
         </div>
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
             Tabel Jadwal
           </h3></div>
           <table class="tbl">
@@ -467,20 +400,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-ketentuan">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
             Tambah Ketentuan
           </h3></div>
           <div class="card-body">
             <div class="fg"><label>Teks Ketentuan</label><input id="kText" placeholder="Teks ketentuan kunjungan..."/></div>
             <button class="btn-add" onclick="addKetentuan()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
               Tambah
             </button>
           </div>
         </div>
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
             Daftar Ketentuan
           </h3></div>
           <div class="card-body" id="ketentuanList"></div>
@@ -491,27 +424,51 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-galeri">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-            Tambah Item Galeri
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+            Upload Foto Galeri
           </h3></div>
           <div class="card-body">
-            <div class="fg-row">
-              <div class="fg"><label>Kunci Ikon (Heroicons)</label><input id="gIcon" placeholder="building"/></div>
-              <div class="fg"><label>Keterangan Foto</label><input id="gCaption" placeholder="Apel Pagi Jajaran Rutan"/></div>
+            <div class="api-banner">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+              <p>Foto akan diunggah ke <strong>Google Drive</strong> (folder yang dikonfigurasi di <code>GALERI_FOLDER_ID</code> di Code.gs) dan langsung tampil di website publik. Format yang didukung: JPG, PNG, WebP. Maksimal 5 MB per foto.</p>
             </div>
-            <button class="btn-add" onclick="addGaleri()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
-              Tambah
-            </button>
+
+            <!-- Upload zone -->
+            <div class="upload-zone" id="uploadZone">
+              <input type="file" id="uploadInput" accept="image/jpeg,image/png,image/webp" multiple onchange="handleFileSelect(this.files)"/>
+              <div class="upload-zone-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+              </div>
+              <div class="upload-zone-text">Klik atau seret foto ke sini</div>
+              <div class="upload-zone-hint">JPG, PNG, WebP — maks 5 MB per file</div>
+            </div>
+
+            <!-- Preview antrian upload -->
+            <div id="uploadQueue" style="display:none;margin-top:16px">
+              <div style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Antrian Upload</div>
+              <div id="uploadPreview" class="upload-preview"></div>
+              <div class="upload-prog" id="uploadProg">
+                <div class="upload-prog-bar"><div class="upload-prog-fill" id="uploadProgFill"></div></div>
+                <div class="upload-prog-text" id="uploadProgText">Mengupload...</div>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:16px">
+                <button class="btn-add" id="uploadBtn" onclick="startUpload()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:14px;height:14px"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+                  Upload Semua ke Drive
+                </button>
+                <button class="btn-cancel" onclick="clearUploadQueue()">Bersihkan</button>
+              </div>
+            </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
-            Daftar Galeri
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+            Foto Galeri
           </h3></div>
           <table class="tbl">
-            <thead><tr><th>Ikon</th><th>Keterangan</th><th>Aksi</th></tr></thead>
+            <thead><tr><th>Foto</th><th>Keterangan</th><th>File ID Drive</th><th>Aksi</th></tr></thead>
             <tbody id="galeriBody"></tbody>
           </table>
         </div>
@@ -521,7 +478,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-kontak">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/></svg>
             Informasi Kontak
           </h3></div>
           <div class="card-body">
@@ -536,7 +493,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
             </div>
             <div class="fg"><label>YouTube URL</label><input id="cYt" placeholder="https://youtube.com/..."/></div>
             <button class="btn-save" onclick="saveKontak()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
               Simpan Kontak
             </button>
           </div>
@@ -547,13 +504,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-api">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z"/></svg>
             Konfigurasi Backend
           </h3></div>
           <div class="card-body">
             <div class="api-banner">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
-              <p>Deploy file <strong>Code.gs</strong> sebagai Web App di Google Apps Script, lalu tempel URL-nya di bawah. Konfigurasi ini juga dipakai untuk login — jadi kalau belum diisi, kamu akan diminta mengisinya di layar login.</p>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+              <p>Deploy file <strong>Code.gs</strong> sebagai Web App di Google Apps Script, tempel URL-nya di bawah. Pastikan juga <strong>GALERI_FOLDER_ID</strong> di Code.gs sudah diisi ID folder Google Drive yang akan menyimpan foto galeri.</p>
             </div>
             <div class="fg"><label>URL Google Apps Script (Web App)</label>
               <input id="apiUrl" placeholder="https://script.google.com/macros/s/XXXX/exec"/>
@@ -563,11 +520,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
             </div>
             <div style="display:flex;gap:10px">
               <button class="btn-save" onclick="saveApiConfig()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
                 Simpan Konfigurasi
               </button>
               <button class="btn-add" style="background:var(--muted)" onclick="testApi()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
                 Uji Koneksi
               </button>
             </div>
@@ -580,16 +537,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
       <div class="tab" id="tab-password">
         <div class="card">
           <div class="card-head"><h3>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
             Ganti Password Admin
           </h3></div>
           <div class="card-body">
             <div class="api-banner">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
-              <p>Password lama wajib diverifikasi server sebelum diganti. Password tersimpan sebagai hash di sheet <strong>Admin</strong>, tidak pernah dalam bentuk asli.</p>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+              <p>Password lama wajib diverifikasi server sebelum diganti. Password tersimpan sebagai hash SHA-256 di sheet <strong>Admin</strong>.</p>
             </div>
             <div class="fg"><label>Username</label>
-              <input id="pwUsername" placeholder="Username admin" readonly style="opacity:.7"/>
+              <input id="pwUsername" readonly style="opacity:.7"/>
             </div>
             <div class="fg"><label>Password Lama</label>
               <input type="password" id="pwOld" placeholder="Masukkan password saat ini"/>
@@ -603,7 +560,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
               </div>
             </div>
             <button class="btn-save" onclick="changePassword()">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
               Simpan Password Baru
             </button>
             <div id="pwResult" style="margin-top:14px;font-size:13px"></div>
@@ -614,22 +571,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
     </div><!-- /content -->
 
     <div class="status-bar" id="statusBar">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
       <span id="statusMsg">Memuat data…</span>
     </div>
   </main>
 </div>
 
 <div class="toast" id="toast">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
   <span id="toastMsg">Tersimpan!</span>
 </div>
 
 <script>
-/* ───────────────────────────────────
-   KONFIGURASI API — disimpan di localStorage
-   (per perangkat/browser, bukan di source code)
-   ─────────────────────────────────── */
+/* ═══════════════════════════════════════════
+   KONFIGURASI API
+   ═══════════════════════════════════════════ */
 let API_URL = localStorage.getItem('rutan_api_url') || '';
 let API_KEY  = localStorage.getItem('rutan_api_key') || '';
 
@@ -644,12 +600,9 @@ async function apiFetch(action, payload) {
   return d;
 }
 
-/* ───────────────────────────────────
-   AUTH — login diverifikasi oleh backend
-   (Apps Script), bukan oleh kode di browser.
-   Token sesi hanya penanda UI di sessionStorage.
-   ─────────────────────────────────── */
-
+/* ═══════════════════════════════════════════
+   AUTH
+   ═══════════════════════════════════════════ */
 function showPreLoginConfigIfNeeded() {
   if (!API_URL) {
     document.getElementById('loginNeedsConfig').style.display = 'block';
@@ -661,55 +614,35 @@ async function doLogin() {
   const btn = document.getElementById('loginBtn');
   const errEl = document.getElementById('loginErr');
   errEl.style.display = 'none';
-
-  // Jika belum dikonfigurasi sama sekali, ambil dari form pre-login dulu
   if (!API_URL) {
     const u = document.getElementById('loginApiUrl').value.trim();
     const k = document.getElementById('loginApiKey').value.trim();
-    if (!u) {
-      errEl.textContent = 'Isi URL Apps Script terlebih dahulu.';
-      errEl.style.display = 'block';
-      return;
-    }
+    if (!u) { errEl.textContent = 'Isi URL Apps Script terlebih dahulu.'; errEl.style.display='block'; return; }
     API_URL = u; API_KEY = k;
     localStorage.setItem('rutan_api_url', API_URL);
     localStorage.setItem('rutan_api_key', API_KEY);
   }
-
   const username = document.getElementById('loginUser').value.trim();
   const password = document.getElementById('loginPass').value;
-  if (!username || !password) {
-    errEl.textContent = 'Username dan password wajib diisi.';
-    errEl.style.display = 'block';
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'Memeriksa…';
+  if (!username || !password) { errEl.textContent='Username dan password wajib diisi.'; errEl.style.display='block'; return; }
+  btn.disabled = true; btn.textContent = 'Memeriksa…';
   try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'login', username, password })
-    });
+    const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({action:'login', username, password}) });
     const d = await res.json();
     if (!d.ok) throw new Error(d.error || 'Login gagal');
-
     sessionStorage.setItem('rutan_sess', d.token);
     sessionStorage.setItem('rutan_sess_user', d.username);
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('panel').classList.add('show');
     initAdmin();
-  } catch (e) {
+  } catch(e) {
     errEl.textContent = e.message || 'Username atau password salah.';
     errEl.style.display = 'block';
   }
-  btn.disabled = false;
-  btn.textContent = 'Masuk';
+  btn.disabled = false; btn.textContent = 'Masuk';
 }
 
-document.getElementById('loginPass').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doLogin();
-});
+document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key==='Enter') doLogin(); });
 
 function doLogout() {
   sessionStorage.removeItem('rutan_sess');
@@ -718,28 +651,27 @@ function doLogout() {
 }
 
 showPreLoginConfigIfNeeded();
-
 if (sessionStorage.getItem('rutan_sess')) {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('panel').classList.add('show');
   document.addEventListener('DOMContentLoaded', initAdmin);
 }
 
-/* ── TABS ── */
+/* ═══════════════════════════════════════════
+   TABS
+   ═══════════════════════════════════════════ */
 function tab(name, btn) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
   document.querySelectorAll('.side-btn').forEach(b => b.classList.remove('on'));
-  document.getElementById('tab-' + name).classList.add('on');
+  document.getElementById('tab-'+name).classList.add('on');
   btn.classList.add('on');
-  const titles = {
-    dashboard:'Dashboard', layanan:'Kelola Layanan',
-    jadwal:'Jadwal Kunjungan', ketentuan:'Ketentuan Kunjungan',
-    galeri:'Galeri Kegiatan', kontak:'Informasi Kontak', api:'Konfigurasi API',
-    password:'Ganti Password'
-  };
+  const titles = { dashboard:'Dashboard', layanan:'Kelola Layanan', jadwal:'Jadwal Kunjungan', ketentuan:'Ketentuan Kunjungan', galeri:'Galeri Kegiatan', kontak:'Informasi Kontak', api:'Konfigurasi API', password:'Ganti Password' };
   document.getElementById('topbarTitle').textContent = titles[name] || name;
 }
 
+/* ═══════════════════════════════════════════
+   API CONFIG
+   ═══════════════════════════════════════════ */
 function saveApiConfig() {
   API_URL = document.getElementById('apiUrl').value.trim();
   API_KEY  = document.getElementById('apiKey').value.trim();
@@ -753,19 +685,21 @@ async function testApi() {
   el.textContent = 'Menguji koneksi…';
   try {
     const r = await apiFetch('ping', {});
-    el.innerHTML = '<span style="color:var(--green);font-weight:600">✓ Koneksi berhasil!</span> — ' + (r.msg || 'Backend aktif');
+    el.innerHTML = '<span style="color:var(--green);font-weight:600">✓ Koneksi berhasil!</span> — ' + (r.msg||'Backend aktif');
   } catch(e) {
     el.innerHTML = '<span style="color:var(--red);font-weight:600">✗ Gagal:</span> ' + e.message;
   }
 }
 
-/* ── LOCAL STATE ── */
-let D = { layanan: [], jadwal: [], ketentuan: [], galeri: [], kontak: {} };
+/* ═══════════════════════════════════════════
+   STATE & SYNC
+   ═══════════════════════════════════════════ */
+let D = { layanan:[], jadwal:[], ketentuan:[], galeri:[], kontak:{} };
 
-function setStatus(msg, ok = null) {
+function setStatus(msg, ok=null) {
   const el = document.getElementById('statusMsg');
   el.textContent = msg;
-  el.className = ok === true ? 'status-ok' : ok === false ? 'status-err' : '';
+  el.className = ok===true ? 'status-ok' : ok===false ? 'status-err' : '';
 }
 
 async function syncAll() {
@@ -775,12 +709,11 @@ async function syncAll() {
   try {
     const r = await apiFetch('all', {});
     D = r.data;
-    renderAll();
-    updateStats();
-    setStatus('Sinkronisasi berhasil — ' + new Date().toLocaleTimeString('id-ID'), true);
+    renderAll(); updateStats();
+    setStatus('Sinkronisasi berhasil — '+new Date().toLocaleTimeString('id-ID'), true);
   } catch(e) {
-    setStatus('Gagal sinkronisasi: ' + e.message, false);
-    toast('Gagal sinkronisasi: ' + e.message);
+    setStatus('Gagal sinkronisasi: '+e.message, false);
+    toast('Gagal: '+e.message);
   }
   btn.style.opacity = '1';
 }
@@ -792,7 +725,6 @@ function toast(msg) {
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-/* ── RENDER ── */
 function updateStats() {
   document.getElementById('sL').textContent = D.layanan.length;
   document.getElementById('sJ').textContent = D.jadwal.length;
@@ -804,169 +736,402 @@ function renderAll() {
   renderLayanan(); renderJadwal(); renderKetentuan(); renderGaleri(); loadKontak();
 }
 
-// LAYANAN
+/* ───────────── ICON HELPER ───────────── */
+const DEL_ICON = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>`;
+const EDIT_ICON = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z"/></svg>`;
+const CHECK_ICON = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>`;
+
+/* ═══════════════════════════════════════════
+   LAYANAN — Render & CRUD
+   ═══════════════════════════════════════════ */
 function renderLayanan() {
-  document.getElementById('layananBody').innerHTML = D.layanan.map((l,i) => `
-    <tr>
-      <td style="font-family:monospace;font-size:12px;color:var(--muted)">${l.icon||'—'}</td>
-      <td><strong>${l.title}</strong></td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${l.link}</td>
-      <td><button class="btn-del" onclick="delLayanan(${i})">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
-        Hapus
-      </button></td>
+  const tb = document.getElementById('layananBody');
+  if (!D.layanan.length) { tb.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:24px">Belum ada data layanan</td></tr>'; return; }
+  tb.innerHTML = D.layanan.map((l,i) => `
+    <tr id="lRow-${l.id}">
+      <td style="font-family:monospace;font-size:11.5px;color:var(--muted)">${escH(l.icon||'')}</td>
+      <td><strong>${escH(l.title)}</strong></td>
+      <td style="font-size:12px;color:var(--muted);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escH(l.desc||'')}</td>
+      <td style="font-size:12px;color:var(--muted);max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escH(l.link||'')}</td>
+      <td><div class="action-group">
+        <button class="btn-edit" onclick="editLayananRow('${l.id}')">${EDIT_ICON} Edit</button>
+        <button class="btn-del" onclick="delLayanan('${l.id}')">${DEL_ICON} Hapus</button>
+      </div></td>
     </tr>
   `).join('');
 }
 
+function editLayananRow(id) {
+  const item = D.layanan.find(l => l.id === id); if (!item) return;
+  const row = document.getElementById('lRow-'+id); if (!row) return;
+  row.classList.add('editing-row');
+  row.innerHTML = `
+    <td><input class="edit-cell-input" id="el-icon-${id}" value="${escH(item.icon||'')}" style="max-width:90px"/></td>
+    <td><input class="edit-cell-input" id="el-title-${id}" value="${escH(item.title||'')}"/></td>
+    <td><input class="edit-cell-input" id="el-desc-${id}" value="${escH(item.desc||'')}"/></td>
+    <td><input class="edit-cell-input" id="el-link-${id}" value="${escH(item.link||'')}"/>
+        <input class="edit-cell-input" id="el-linklabel-${id}" value="${escH(item.linkLabel||'')}" style="margin-top:4px" placeholder="Label"/></td>
+    <td><div class="action-group">
+      <button class="save-row-btn" onclick="saveLayananRow('${id}')">✓ Simpan</button>
+      <button class="cancel-row-btn" onclick="renderLayanan()">Batal</button>
+    </div></td>
+  `;
+}
+
+async function saveLayananRow(id) {
+  const updates = {
+    icon:      document.getElementById('el-icon-'+id).value.trim(),
+    title:     document.getElementById('el-title-'+id).value.trim(),
+    desc:      document.getElementById('el-desc-'+id).value.trim(),
+    link:      document.getElementById('el-link-'+id).value.trim(),
+    linkLabel: document.getElementById('el-linklabel-'+id).value.trim()
+  };
+  if (!updates.title) { toast('Nama layanan wajib diisi'); return; }
+  try {
+    const r = await apiFetch('editLayanan', { id, item: updates });
+    D.layanan = r.data; renderLayanan(); updateStats(); toast('Layanan diperbarui');
+  } catch(e) { toast(e.message); }
+}
+
 async function addLayanan() {
   const obj = {
-    icon: document.getElementById('lIcon').value.trim()||'id-card',
-    title: document.getElementById('lTitle').value.trim(),
-    desc: document.getElementById('lDesc').value.trim(),
-    link: document.getElementById('lLink').value.trim(),
-    linkLabel: document.getElementById('lLinkLabel').value.trim()||'Buka'
+    icon:      document.getElementById('lIcon').value.trim() || 'id-card',
+    title:     document.getElementById('lTitle').value.trim(),
+    desc:      document.getElementById('lDesc').value.trim(),
+    link:      document.getElementById('lLink').value.trim(),
+    linkLabel: document.getElementById('lLinkLabel').value.trim() || 'Buka'
   };
   if (!obj.title) { toast('Nama layanan wajib diisi'); return; }
   try {
-    const r = await apiFetch('addLayanan', {item: obj});
-    D.layanan = r.data;
-    renderLayanan(); updateStats();
+    const r = await apiFetch('addLayanan', { item: obj });
+    D.layanan = r.data; renderLayanan(); updateStats();
     ['lIcon','lTitle','lDesc','lLink','lLinkLabel'].forEach(id => document.getElementById(id).value='');
     toast('Layanan ditambahkan');
   } catch(e) { toast(e.message); }
 }
 
-async function delLayanan(i) {
+async function delLayanan(id) {
   if (!confirm('Hapus layanan ini?')) return;
   try {
-    const r = await apiFetch('delLayanan', {index: i});
-    D.layanan = r.data;
-    renderLayanan(); updateStats(); toast('Layanan dihapus');
+    const r = await apiFetch('delLayanan', { id });
+    D.layanan = r.data; renderLayanan(); updateStats(); toast('Layanan dihapus');
   } catch(e) { toast(e.message); }
 }
 
-// JADWAL
+/* ═══════════════════════════════════════════
+   JADWAL — Render & CRUD
+   ═══════════════════════════════════════════ */
 function renderJadwal() {
-  document.getElementById('jadwalBody').innerHTML = D.jadwal.map((j,i) => `
-    <tr>
-      <td><strong>${j.hari}</strong></td>
-      <td>${j.jam}</td>
-      <td>${j.ket}</td>
+  const tb = document.getElementById('jadwalBody');
+  if (!D.jadwal.length) { tb.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--muted);padding:24px">Belum ada jadwal</td></tr>'; return; }
+  tb.innerHTML = D.jadwal.map(j => `
+    <tr id="jRow-${j.id}">
+      <td><strong>${escH(j.hari||'')}</strong></td>
+      <td>${escH(j.jam||'')}</td>
+      <td>${escH(j.ket||'')}</td>
       <td><span class="${j.status==='open'?'dot-open':'dot-closed'}">${j.status==='open'?'Buka':'Tutup'}</span></td>
-      <td><button class="btn-del" onclick="delJadwal(${i})">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
-        Hapus
-      </button></td>
+      <td><div class="action-group">
+        <button class="btn-edit" onclick="editJadwalRow('${j.id}')">${EDIT_ICON} Edit</button>
+        <button class="btn-del" onclick="delJadwal('${j.id}')">${DEL_ICON} Hapus</button>
+      </div></td>
     </tr>
   `).join('');
 }
 
+function editJadwalRow(id) {
+  const item = D.jadwal.find(j => j.id === id); if (!item) return;
+  const row = document.getElementById('jRow-'+id); if (!row) return;
+  row.classList.add('editing-row');
+  row.innerHTML = `
+    <td><input class="edit-cell-input" id="ej-hari-${id}" value="${escH(item.hari||'')}"/></td>
+    <td><input class="edit-cell-input" id="ej-jam-${id}" value="${escH(item.jam||'')}"/></td>
+    <td><input class="edit-cell-input" id="ej-ket-${id}" value="${escH(item.ket||'')}"/></td>
+    <td><select class="edit-cell-select" id="ej-status-${id}">
+      <option value="open" ${item.status==='open'?'selected':''}>Buka</option>
+      <option value="closed" ${item.status==='closed'?'selected':''}>Tutup</option>
+    </select></td>
+    <td><div class="action-group">
+      <button class="save-row-btn" onclick="saveJadwalRow('${id}')">✓ Simpan</button>
+      <button class="cancel-row-btn" onclick="renderJadwal()">Batal</button>
+    </div></td>
+  `;
+}
+
+async function saveJadwalRow(id) {
+  const updates = {
+    hari:   document.getElementById('ej-hari-'+id).value.trim(),
+    jam:    document.getElementById('ej-jam-'+id).value.trim() || '—',
+    ket:    document.getElementById('ej-ket-'+id).value.trim(),
+    status: document.getElementById('ej-status-'+id).value
+  };
+  if (!updates.hari) { toast('Hari wajib diisi'); return; }
+  try {
+    const r = await apiFetch('editJadwal', { id, item: updates });
+    D.jadwal = r.data; renderJadwal(); toast('Jadwal diperbarui');
+  } catch(e) { toast(e.message); }
+}
+
 async function addJadwal() {
   const obj = {
-    hari: document.getElementById('jHari').value.trim(),
-    jam: document.getElementById('jJam').value.trim()||'—',
-    ket: document.getElementById('jKet').value.trim(),
+    hari:   document.getElementById('jHari').value.trim(),
+    jam:    document.getElementById('jJam').value.trim() || '—',
+    ket:    document.getElementById('jKet').value.trim(),
     status: document.getElementById('jStatus').value
   };
   if (!obj.hari) { toast('Hari wajib diisi'); return; }
   try {
-    const r = await apiFetch('addJadwal', {item: obj});
-    D.jadwal = r.data;
-    renderJadwal(); updateStats();
+    const r = await apiFetch('addJadwal', { item: obj });
+    D.jadwal = r.data; renderJadwal(); updateStats();
     ['jHari','jJam','jKet'].forEach(id => document.getElementById(id).value='');
     toast('Jadwal ditambahkan');
   } catch(e) { toast(e.message); }
 }
 
-async function delJadwal(i) {
+async function delJadwal(id) {
   if (!confirm('Hapus baris jadwal ini?')) return;
   try {
-    const r = await apiFetch('delJadwal', {index: i});
-    D.jadwal = r.data;
-    renderJadwal(); updateStats(); toast('Jadwal dihapus');
+    const r = await apiFetch('delJadwal', { id });
+    D.jadwal = r.data; renderJadwal(); updateStats(); toast('Jadwal dihapus');
   } catch(e) { toast(e.message); }
 }
 
-// KETENTUAN
+/* ═══════════════════════════════════════════
+   KETENTUAN — Render & CRUD
+   ═══════════════════════════════════════════ */
 function renderKetentuan() {
   const el = document.getElementById('ketentuanList');
-  el.innerHTML = D.ketentuan.map((k,i) => `
-    <div class="ket-admin-item">
-      <div class="ket-admin-check">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
-      </div>
-      <span class="ket-admin-text">${k}</span>
-      <button class="btn-del" onclick="delKetentuan(${i})">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
-        Hapus
-      </button>
-    </div>
-  `).join('');
+  if (!D.ketentuan.length) { el.innerHTML = '<p style="color:var(--muted);font-size:13px">Belum ada ketentuan.</p>'; return; }
+  el.innerHTML = D.ketentuan.map(k => {
+    const id = k.id; const text = k.text || '';
+    return `
+      <div class="ket-admin-item" id="kItem-${id}">
+        <div class="ket-admin-check">${CHECK_ICON}</div>
+        <span class="ket-admin-text">${escH(text)}</span>
+        <div class="action-group">
+          <button class="btn-edit" onclick="editKetItem('${id}')">${EDIT_ICON}</button>
+          <button class="btn-del" onclick="delKetentuan('${id}')">${DEL_ICON}</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function editKetItem(id) {
+  const item = D.ketentuan.find(k => k.id === id); if (!item) return;
+  const el = document.getElementById('kItem-'+id); if (!el) return;
+  el.classList.add('editing');
+  const text = item.text || '';
+  el.innerHTML = `
+    <div class="ket-admin-check">${CHECK_ICON}</div>
+    <input class="ket-edit-input" id="ket-inp-${id}" value="${escH(text)}"/>
+    <div class="action-group">
+      <button class="save-row-btn" onclick="saveKetItem('${id}')">✓ Simpan</button>
+      <button class="cancel-row-btn" onclick="renderKetentuan()">Batal</button>
+    </div>`;
+}
+
+async function saveKetItem(id) {
+  const val = document.getElementById('ket-inp-'+id).value.trim();
+  if (!val) { toast('Teks ketentuan wajib diisi'); return; }
+  try {
+    const r = await apiFetch('editKetentuan', { id, item: val });
+    D.ketentuan = r.data; renderKetentuan(); toast('Ketentuan diperbarui');
+  } catch(e) { toast(e.message); }
 }
 
 async function addKetentuan() {
   const text = document.getElementById('kText').value.trim();
   if (!text) return;
   try {
-    const r = await apiFetch('addKetentuan', {item: text});
-    D.ketentuan = r.data;
-    renderKetentuan(); updateStats();
-    document.getElementById('kText').value = '';
-    toast('Ketentuan ditambahkan');
+    const r = await apiFetch('addKetentuan', { item: text });
+    D.ketentuan = r.data; renderKetentuan(); updateStats();
+    document.getElementById('kText').value = ''; toast('Ketentuan ditambahkan');
   } catch(e) { toast(e.message); }
 }
 
-async function delKetentuan(i) {
+async function delKetentuan(id) {
   try {
-    const r = await apiFetch('delKetentuan', {index: i});
-    D.ketentuan = r.data;
-    renderKetentuan(); updateStats(); toast('Ketentuan dihapus');
+    const r = await apiFetch('delKetentuan', { id });
+    D.ketentuan = r.data; renderKetentuan(); updateStats(); toast('Ketentuan dihapus');
   } catch(e) { toast(e.message); }
 }
 
-// GALERI
+/* ═══════════════════════════════════════════
+   GALERI — Upload ke Drive & Render
+   ═══════════════════════════════════════════ */
+let uploadQueue = []; // [{file, caption}]
+
+function handleFileSelect(files) {
+  for (const file of files) {
+    if (file.size > 5 * 1024 * 1024) { toast('File '+file.name+' melebihi 5 MB'); continue; }
+    if (!['image/jpeg','image/png','image/webp'].includes(file.type)) { toast('Format tidak didukung: '+file.name); continue; }
+    uploadQueue.push({ file, caption: file.name.replace(/\.[^.]+$/,'') });
+  }
+  renderUploadQueue();
+  document.getElementById('uploadInput').value = '';
+}
+
+function renderUploadQueue() {
+  const qEl = document.getElementById('uploadQueue');
+  const prev = document.getElementById('uploadPreview');
+  if (!uploadQueue.length) { qEl.style.display='none'; return; }
+  qEl.style.display='block';
+  prev.innerHTML = uploadQueue.map((item,i) => {
+    const url = URL.createObjectURL(item.file);
+    return `
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div class="upload-prev-item">
+          <img src="${url}" alt="${escH(item.file.name)}"/>
+          <button class="upload-prev-remove" onclick="removeFromQueue(${i})">✕</button>
+          <div class="upload-prev-name">${escH(item.file.name)}</div>
+        </div>
+        <div class="upload-caption-row">
+          <input type="text" placeholder="Keterangan foto..." value="${escH(item.caption)}"
+            oninput="uploadQueue[${i}].caption=this.value"/>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function removeFromQueue(i) {
+  uploadQueue.splice(i,1);
+  renderUploadQueue();
+}
+
+function clearUploadQueue() {
+  uploadQueue = [];
+  renderUploadQueue();
+  document.getElementById('uploadProg').style.display='none';
+}
+
+async function startUpload() {
+  if (!uploadQueue.length) return;
+  const btn = document.getElementById('uploadBtn');
+  const prog = document.getElementById('uploadProg');
+  const fill = document.getElementById('uploadProgFill');
+  const progText = document.getElementById('uploadProgText');
+  btn.disabled = true;
+  prog.style.display = 'block';
+  let done = 0;
+  const total = uploadQueue.length;
+  const failed = [];
+
+  for (let i = 0; i < uploadQueue.length; i++) {
+    const item = uploadQueue[i];
+    progText.textContent = `Mengupload ${i+1} dari ${total}: ${item.file.name}`;
+    try {
+      const base64 = await fileToBase64(item.file);
+      await apiFetch('uploadGaleri', {
+        filename: item.file.name,
+        mimeType: item.file.type,
+        base64,
+        caption: item.caption || item.file.name
+      });
+      done++;
+    } catch(e) {
+      failed.push(item.file.name + ': ' + e.message);
+    }
+    fill.style.width = Math.round(((i+1)/total)*100)+'%';
+  }
+
+  progText.textContent = `Selesai: ${done} berhasil${failed.length?' , '+failed.length+' gagal':''}`;
+  if (failed.length) {
+    toast('Ada '+failed.length+' file yang gagal diupload');
+    console.error('Upload errors:', failed);
+  } else {
+    toast(`${done} foto berhasil diupload ke Drive`);
+  }
+
+  // Refresh galeri dari backend
+  try {
+    const r = await apiFetch('all', {});
+    D.galeri = r.data.galeri;
+    renderGaleri(); updateStats();
+  } catch(_) {}
+
+  // Clear queue
+  uploadQueue = [];
+  btn.disabled = false;
+  setTimeout(() => {
+    renderUploadQueue();
+    prog.style.display='none';
+    fill.style.width='0%';
+  }, 2000);
+}
+
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const reader = new FileReader();
+    reader.onload  = () => res(reader.result.split(',')[1]);
+    reader.onerror = () => rej(new Error('Gagal membaca file'));
+    reader.readAsDataURL(file);
+  });
+}
+
+// Drag & drop
+const uploadZone = document.getElementById('uploadZone');
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault(); uploadZone.classList.remove('drag');
+  handleFileSelect(e.dataTransfer.files);
+});
+
 function renderGaleri() {
-  document.getElementById('galeriBody').innerHTML = D.galeri.map((g,i) => `
-    <tr>
-      <td style="font-family:monospace;font-size:12px;color:var(--muted)">${g.icon||'—'}</td>
-      <td>${g.caption}</td>
-      <td><button class="btn-del" onclick="delGaleri(${i})">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" style="width:12px;height:12px"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/></svg>
-        Hapus
-      </button></td>
+  const tb = document.getElementById('galeriBody');
+  if (!D.galeri.length) { tb.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:24px">Belum ada foto galeri. Upload foto di atas.</td></tr>'; return; }
+  tb.innerHTML = D.galeri.map(g => `
+    <tr id="gRow-${g.id}">
+      <td>
+        ${g.driveUrl
+          ? `<img class="galeri-thumb" src="${escH(g.driveUrl)}" alt="${escH(g.caption||'')}" onerror="this.outerHTML='<div class=galeri-thumb-ph><svg xmlns=http://www.w3.org/2000/svg fill=none viewBox=&quot;0 0 24 24&quot; stroke-width=1.5 stroke=currentColor style=&quot;width:20px;height:20px;color:#6b6b6b&quot;><path stroke-linecap=round stroke-linejoin=round d=&quot;M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z&quot;/></svg></div>'"/>`
+          : `<div class="galeri-thumb-ph"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width:20px;height:20px;color:#6b6b6b"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/></svg></div>`
+        }
+      </td>
+      <td>${escH(g.caption||'')}</td>
+      <td style="font-family:monospace;font-size:11px;color:var(--muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escH(g.driveFileId||'—')}</td>
+      <td><div class="action-group">
+        <button class="btn-edit" onclick="editGaleriCaption('${g.id}')">${EDIT_ICON} Keterangan</button>
+        <button class="btn-del" onclick="delGaleri('${g.id}')">${DEL_ICON} Hapus</button>
+      </div></td>
     </tr>
   `).join('');
 }
 
-async function addGaleri() {
-  const obj = {
-    icon: document.getElementById('gIcon').value.trim()||'building',
-    caption: document.getElementById('gCaption').value.trim()
-  };
-  if (!obj.caption) { toast('Keterangan wajib diisi'); return; }
+function editGaleriCaption(id) {
+  const item = D.galeri.find(g => g.id === id); if (!item) return;
+  const row = document.getElementById('gRow-'+id); if (!row) return;
+  const tds = row.querySelectorAll('td');
+  row.classList.add('editing-row');
+  tds[1].innerHTML = `<input class="edit-cell-input" id="gc-cap-${id}" value="${escH(item.caption||'')}"/>`;
+  tds[3].innerHTML = `<div class="action-group">
+    <button class="save-row-btn" onclick="saveGaleriCaption('${id}')">✓ Simpan</button>
+    <button class="cancel-row-btn" onclick="renderGaleri()">Batal</button>
+  </div>`;
+}
+
+async function saveGaleriCaption(id) {
+  const caption = document.getElementById('gc-cap-'+id).value.trim();
   try {
-    const r = await apiFetch('addGaleri', {item: obj});
-    D.galeri = r.data;
-    renderGaleri(); updateStats();
-    ['gIcon','gCaption'].forEach(id => document.getElementById(id).value='');
-    toast('Item galeri ditambahkan');
+    const r = await apiFetch('editGaleriCaption', { id, caption });
+    D.galeri = r.data; renderGaleri(); toast('Keterangan diperbarui');
   } catch(e) { toast(e.message); }
 }
 
-async function delGaleri(i) {
+async function delGaleri(id) {
+  if (!confirm('Hapus foto ini? File di Google Drive juga akan dihapus.')) return;
   try {
-    const r = await apiFetch('delGaleri', {index: i});
-    D.galeri = r.data;
-    renderGaleri(); updateStats(); toast('Item galeri dihapus');
+    const r = await apiFetch('delGaleri', { id });
+    D.galeri = r.data; renderGaleri(); updateStats(); toast('Foto dihapus dari galeri & Drive');
   } catch(e) { toast(e.message); }
 }
 
-// KONTAK
+/* ═══════════════════════════════════════════
+   KONTAK
+   ═══════════════════════════════════════════ */
 function loadKontak() {
   if (!D.kontak) return;
   ['Alamat','Telp','Wa','Ig','Fb','Yt'].forEach(k => {
-    const el = document.getElementById('c' + k);
+    const el = document.getElementById('c'+k);
     if (el) el.value = D.kontak[k.toLowerCase()] || '';
   });
 }
@@ -977,63 +1142,49 @@ async function saveKontak() {
     obj[k.toLowerCase()] = document.getElementById('c'+k).value.trim();
   });
   try {
-    await apiFetch('saveKontak', {kontak: obj});
-    D.kontak = obj;
-    toast('Kontak disimpan');
+    await apiFetch('saveKontak', { kontak: obj });
+    D.kontak = obj; toast('Kontak disimpan');
   } catch(e) { toast(e.message); }
 }
 
-// GANTI PASSWORD
+/* ═══════════════════════════════════════════
+   GANTI PASSWORD
+   ═══════════════════════════════════════════ */
 async function changePassword() {
   const resultEl = document.getElementById('pwResult');
   resultEl.textContent = '';
-
   const username = sessionStorage.getItem('rutan_sess_user') || '';
   const oldPass = document.getElementById('pwOld').value;
   const newPass = document.getElementById('pwNew').value;
   const newPassConfirm = document.getElementById('pwNewConfirm').value;
-
-  if (!username) {
-    resultEl.innerHTML = '<span style="color:var(--red);font-weight:600">Sesi tidak valid, silakan login ulang.</span>';
-    return;
-  }
-  if (!oldPass || !newPass || !newPassConfirm) {
-    resultEl.innerHTML = '<span style="color:var(--red);font-weight:600">Semua kolom wajib diisi.</span>';
-    return;
-  }
-  if (newPass.length < 6) {
-    resultEl.innerHTML = '<span style="color:var(--red);font-weight:600">Password baru minimal 6 karakter.</span>';
-    return;
-  }
-  if (newPass !== newPassConfirm) {
-    resultEl.innerHTML = '<span style="color:var(--red);font-weight:600">Konfirmasi password baru tidak cocok.</span>';
-    return;
-  }
-
+  if (!username) { resultEl.innerHTML='<span style="color:var(--red);font-weight:600">Sesi tidak valid, login ulang.</span>'; return; }
+  if (!oldPass||!newPass||!newPassConfirm) { resultEl.innerHTML='<span style="color:var(--red);font-weight:600">Semua kolom wajib diisi.</span>'; return; }
+  if (newPass.length<6) { resultEl.innerHTML='<span style="color:var(--red);font-weight:600">Password baru minimal 6 karakter.</span>'; return; }
+  if (newPass!==newPassConfirm) { resultEl.innerHTML='<span style="color:var(--red);font-weight:600">Konfirmasi password tidak cocok.</span>'; return; }
   try {
-    await apiFetch('changePassword', { username, oldPassword: oldPass, newPassword: newPass });
-    resultEl.innerHTML = '<span style="color:var(--green);font-weight:600">✓ Password berhasil diperbarui.</span>';
-    document.getElementById('pwOld').value = '';
-    document.getElementById('pwNew').value = '';
-    document.getElementById('pwNewConfirm').value = '';
+    await apiFetch('changePassword', { username, oldPassword:oldPass, newPassword:newPass });
+    resultEl.innerHTML='<span style="color:var(--green);font-weight:600">✓ Password berhasil diperbarui.</span>';
+    document.getElementById('pwOld').value='';
+    document.getElementById('pwNew').value='';
+    document.getElementById('pwNewConfirm').value='';
     toast('Password berhasil diganti');
-  } catch (e) {
-    resultEl.innerHTML = '<span style="color:var(--red);font-weight:600">✗ Gagal:</span> ' + e.message;
+  } catch(e) {
+    resultEl.innerHTML='<span style="color:var(--red);font-weight:600">✗ Gagal:</span> '+e.message;
   }
 }
 
-/* ── INIT ── */
+/* ═══════════════════════════════════════════
+   INIT
+   ═══════════════════════════════════════════ */
 function initAdmin() {
   const user = sessionStorage.getItem('rutan_sess_user');
   if (user) {
-    document.getElementById('sideBadge').textContent = 'Masuk sebagai ' + user;
-    const pwUserEl = document.getElementById('pwUsername');
-    if (pwUserEl) pwUserEl.value = user;
+    document.getElementById('sideBadge').textContent = user;
+    const pwEl = document.getElementById('pwUsername');
+    if (pwEl) pwEl.value = user;
   }
-
   document.getElementById('apiUrl').value = API_URL;
   document.getElementById('apiKey').value = API_KEY;
-
   if (API_URL) {
     syncAll();
   } else {
@@ -1041,6 +1192,11 @@ function initAdmin() {
     D = { layanan:[], jadwal:[], ketentuan:[], galeri:[], kontak:{} };
     updateStats();
   }
+}
+
+/* ─── HTML ESCAPE ─── */
+function escH(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 </script>
 </body>
