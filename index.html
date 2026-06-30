@@ -177,14 +177,14 @@ svg{display:block;flex-shrink:0}
 .vm-body ul li{margin-bottom:4px}
 .profil-right{display:flex;flex-direction:column;gap:24px}
 .emblem-frame{
-  background:var(--ink);border-radius:var(--r);
+  border-radius:var(--r);
   aspect-ratio:1;max-width:240px;margin:0 auto;
   display:flex;align-items:center;justify-content:center;
   position:relative;overflow:hidden;
   padding:20px;
 }
 .emblem-frame::after{
-  content:'RUTAN KELAS IIB BANTAENG';
+  content:'';
   position:absolute;bottom:16px;left:0;right:0;
   text-align:center;font-size:8px;letter-spacing:2.5px;color:rgba(255,255,255,0.35);
   font-family:var(--font-body);
@@ -816,7 +816,7 @@ svg{display:block;flex-shrink:0}
 <script>
 /* ── DATA ── */
 window.SITE = {
-  API_URL: '',
+  API_URL: 'https://script.google.com/macros/s/AKfycbx8YJ8vxfhD5hgshUA1W18xBENxjvfhDQowKOp98jKz4sC9ihECLgjIEb71ElHEHfvNnQ/exec',
   fallback: {
     layanan:[
       {icon:"id-card",title:"Pendaftaran Kunjungan (Kartu BATARI)",desc:"Daftar kartu kunjungan Warga Binaan Pemasyarakatan secara online. Proses cepat dan tanpa antri.",link:"https://sipp.kemenkumham.go.id",linkLabel:"Daftar online"},
