@@ -531,11 +531,11 @@ svg{display:block;flex-shrink:0}
     </div>
     <div class="hero-metrics">
       <div class="metric">
-        <div class="metric-num" data-target="6">0</div>
+        <div class="metric-num" id="metricHari" data-target="6">0</div>
         <div class="metric-label">Hari kunjungan / minggu</div>
       </div>
       <div class="metric">
-        <div class="metric-num" data-target="4">0</div>
+        <div class="metric-num" id="metricLayanan" data-target="4">0</div>
         <div class="metric-label">Layanan PTSP online</div>
       </div>
       <div class="metric">
@@ -704,7 +704,7 @@ svg{display:block;flex-shrink:0}
         </div>
         <div>
           <div class="kk-label">Alamat</div>
-          <div class="kk-val">Jl. Andi Mannappiang No.2, Pallantikang, Kec. Bantaeng, Kabupaten Bantaeng, Sulawesi Selatan 92413</div>
+          <div class="kk-val" id="kkAlamat">Jl. Andi Mannappiang No.2, Pallantikang, Kec. Bantaeng, Kabupaten Bantaeng, Sulawesi Selatan 92413</div>
         </div>
       </div>
       <div class="kk-card reveal">
@@ -713,7 +713,7 @@ svg{display:block;flex-shrink:0}
         </div>
         <div>
           <div class="kk-label">Telepon</div>
-          <div class="kk-val">(0413) 21038</div>
+          <div class="kk-val" id="kkTelp">(0413) 21038</div>
         </div>
       </div>
       <div class="kk-card reveal">
@@ -723,7 +723,7 @@ svg{display:block;flex-shrink:0}
         <div>
           <div class="kk-label">WhatsApp (LAWAS)</div>
           <div class="kk-val">Layanan konsultasi dan informasi via WhatsApp</div>
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="kk-action">
+          <a href="https://wa.me/6281234567890" id="kkWaLink" target="_blank" rel="noopener" class="kk-action">
             Hubungi via WhatsApp
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -762,6 +762,7 @@ svg{display:block;flex-shrink:0}
     </div>
     <div class="maps-wrap reveal">
       <iframe
+        id="kkMapsIframe"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.2345!2d119.9579!3d-5.5586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbef4cfb8b9d7b1%3A0x1a7e32c9fc3ae5c0!2sRumah%20Tahanan%20Negara%20Klas%20IIB%20Bantaeng!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         title="Lokasi Rutan Bantaeng">
@@ -852,7 +853,13 @@ window.SITE = {
       {caption:"Pelayanan PTSP Terpadu",icon:"hand-raised",driveFileId:"",driveUrl:""},
       {caption:"Kegiatan Olahraga WBP",icon:"trophy",driveFileId:"",driveUrl:""},
       {caption:"Kunjungan dan Pengawasan Eksternal",icon:"magnifying-glass",driveFileId:"",driveUrl:""}
-    ]
+    ],
+    kontak:{
+      alamat:"Jl. Andi Mannappiang No.2, Pallantikang, Kec. Bantaeng, Kabupaten Bantaeng, Sulawesi Selatan 92413",
+      telp:"(0413) 21038",
+      wa:"6281234567890",
+      ig:"", fb:"", yt:"", mapsembed:""
+    }
   }
 };
 
@@ -968,6 +975,47 @@ function buildGaleriPh(iconKey, caption) {
   return `<div class="galeri-ph"><div class="galeri-ph-icon">${svgStr}</div><div class="galeri-ph-label">${caption}</div></div><div class="galeri-overlay"><span class="galeri-caption">${caption}</span></div>`;
 }
 
+/* ── METRICS (dari data backend) ── */
+function updateMetrics(d) {
+  const layananEl = document.getElementById('metricLayanan');
+  const hariEl = document.getElementById('metricHari');
+  if (layananEl) layananEl.dataset.target = (d.layanan || []).length;
+  if (hariEl) hariEl.dataset.target = (d.jadwal || []).filter(j => j.status === 'open').length;
+}
+
+/* ── KONTAK & LOKASI (dari data backend) ── */
+function updateKontak(kontak) {
+  if (!kontak) return;
+  const alamatEl = document.getElementById('kkAlamat');
+  const telpEl = document.getElementById('kkTelp');
+  const waLink = document.getElementById('kkWaLink');
+  const mapsIframe = document.getElementById('kkMapsIframe');
+
+  if (alamatEl && kontak.alamat) alamatEl.textContent = kontak.alamat;
+  if (telpEl && kontak.telp) telpEl.textContent = kontak.telp;
+  if (waLink && kontak.wa) waLink.href = 'https://wa.me/' + kontak.wa;
+
+  if (mapsIframe) {
+    if (kontak.mapsembed) {
+      // URL embed kustom dari admin (Google Maps -> Share -> Embed a map)
+      mapsIframe.src = kontak.mapsembed;
+    } else if (kontak.alamat) {
+      // Fallback: bangun embed otomatis dari teks alamat (tanpa API key)
+      mapsIframe.src = 'https://www.google.com/maps?q=' + encodeURIComponent(kontak.alamat) + '&output=embed';
+    }
+  }
+
+  const btns = document.getElementById('sosmedBtns');
+  if (btns) {
+    const html = [
+      kontak.ig ? `<a href="${kontak.ig}" target="_blank" rel="noopener" class="s-btn ig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>` : '',
+      kontak.yt ? `<a href="${kontak.yt}" target="_blank" rel="noopener" class="s-btn yt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>YouTube</a>` : '',
+      kontak.fb ? `<a href="${kontak.fb}" target="_blank" rel="noopener" class="s-btn fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>` : ''
+    ].filter(Boolean).join('');
+    if (html) btns.innerHTML = html;
+  }
+}
+
 /* ── LIGHTBOX ── */
 function openLightbox(url, caption) {
   document.getElementById('lightboxImg').src = url;
@@ -1025,7 +1073,7 @@ function initCounters() {
       const target = parseInt(el.dataset.target);
       const suffix = el.dataset.suffix || '';
       let n = 0;
-      const step = Math.ceil(target / 30);
+      const step = Math.ceil(target / 30) || 1;
       const t = setInterval(() => {
         n = Math.min(n + step, target);
         el.textContent = n + (n >= target ? suffix : '');
@@ -1055,24 +1103,19 @@ function initReveal() {
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', async () => {
   initNav();
-  initCounters();
   initReveal();
+
   const d = await loadData();
+
+  updateMetrics(d);
+  initCounters();
+
   renderLayanan(d.layanan || []);
   renderJadwal(d.jadwal || []);
   renderKetentuan(d.ketentuan || []);
   renderGaleri(d.galeri || []);
-  // Update sosmed links dari kontak
-  if (d.kontak) {
-    const btns = document.getElementById('sosmedBtns');
-    if (btns) {
-      btns.innerHTML = [
-        d.kontak.ig ? `<a href="${d.kontak.ig}" target="_blank" rel="noopener" class="s-btn ig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>` : '',
-        d.kontak.yt ? `<a href="${d.kontak.yt}" target="_blank" rel="noopener" class="s-btn yt"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>YouTube</a>` : '',
-        d.kontak.fb ? `<a href="${d.kontak.fb}" target="_blank" rel="noopener" class="s-btn fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>` : ''
-      ].filter(Boolean).join('') || btns.innerHTML;
-    }
-  }
+  updateKontak(d.kontak);
+
   initReveal();
 });
 </script>
