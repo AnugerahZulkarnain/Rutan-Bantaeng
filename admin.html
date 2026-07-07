@@ -103,6 +103,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
 .fg textarea{resize:vertical;min-height:72px}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .fg-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fg-hint{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5}
 
 /* BUTTONS */
 .btn-add{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:var(--ink);color:#fff;border:none;border-radius:var(--r);font-family:var(--display);font-size:13px;font-weight:700;cursor:pointer;transition:background var(--t)}
@@ -492,6 +493,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);height:100vh;
               <div class="fg"><label>Facebook URL</label><input id="cFb" placeholder="https://facebook.com/..."/></div>
             </div>
             <div class="fg"><label>YouTube URL</label><input id="cYt" placeholder="https://youtube.com/..."/></div>
+            <div class="fg">
+              <label>URL Embed Google Maps (opsional)</label>
+              <textarea id="cMapsEmbed" placeholder="Tempel URL dari Google Maps > Bagikan > Sematkan peta > salin isi src=&quot;...&quot; ke sini"></textarea>
+              <div class="fg-hint">Kosongkan jika ingin peta otomatis dibuat dari Alamat Lengkap di atas. Untuk pin lokasi yang presisi, buka lokasi di Google Maps → tombol Bagikan → tab "Sematkan peta" → salin URL di dalam atribut <code>src</code> lalu tempel di sini.</div>
+            </div>
             <button class="btn-save" onclick="saveKontak()">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
               Simpan Kontak
@@ -1130,7 +1136,7 @@ async function delGaleri(id) {
    ═══════════════════════════════════════════ */
 function loadKontak() {
   if (!D.kontak) return;
-  ['Alamat','Telp','Wa','Ig','Fb','Yt'].forEach(k => {
+  ['Alamat','Telp','Wa','Ig','Fb','Yt','MapsEmbed'].forEach(k => {
     const el = document.getElementById('c'+k);
     if (el) el.value = D.kontak[k.toLowerCase()] || '';
   });
@@ -1138,7 +1144,7 @@ function loadKontak() {
 
 async function saveKontak() {
   const obj = {};
-  ['Alamat','Telp','Wa','Ig','Fb','Yt'].forEach(k => {
+  ['Alamat','Telp','Wa','Ig','Fb','Yt','MapsEmbed'].forEach(k => {
     obj[k.toLowerCase()] = document.getElementById('c'+k).value.trim();
   });
   try {
